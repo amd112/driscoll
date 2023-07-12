@@ -70,3 +70,24 @@ merge_verbose = function(x, y, by, by.y=by, by.x=by, all=F, all.x=all, all.y=all
     
     return(new)
 }
+
+
+#' Wrapper around sum that still passes NA if ALL obs are NA
+#' 
+#' 
+#' @param x vector to sum over
+#' @param na.rm 
+#' @export
+sum_na = function(x, na.rm = T, ...) {
+  if (all(is.na(x))) { return(NA) } else {return(sum(x, ...))}
+}
+
+#' Wrapper around mean that still passes NA if ALL obs are NA
+#' 
+#' 
+#' @param x vector to take the mean over
+#' @param na.rm 
+#' @export
+mean_na = function(x, na.rm = T, ...) {
+  if (all(is.na(x))) { return(NA) } else {return(mean(x, ...))}
+}
